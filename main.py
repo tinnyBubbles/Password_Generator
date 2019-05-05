@@ -35,7 +35,7 @@ class BuildGui:
         self.window.title("Password Generator")
 
         self.lbl = Label(self.window, text=password)
-        self.btn_generate = Button(self.window, text='Generate Password', command=self.generate_password())
+        self.btn_generate = Button(self.window, text='Generate Password', command=self.generate_password)
 
         self.lbl.pack()
         self.btn_generate.pack()
