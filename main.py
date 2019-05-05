@@ -8,10 +8,10 @@ enter_Program = enter_Program.lower()
 # Functions
 def gen_rand_password(b_length):
     """Generates a random number of a specified bit length then converts to hex.
-       Returns an int.
+       Returns an hex.
     """
-    random_int = getrandbits(b_length)
-    return random_int
+    random_hex = hex(getrandbits(b_length))
+    return random_hex
 
 
 def salt(rand_string):
@@ -23,7 +23,7 @@ def salt(rand_string):
 #  Get user input/ bit length of password/ file path to store password
 
 if enter_Program == "y":
-    print(gen_rand_password(16))
+    print(gen_rand_password(64))
 
 else:
     exit()
