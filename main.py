@@ -1,13 +1,30 @@
 import gen_rand_password as gen
+from tkinter import *
 
 
-# Ask user to enter program or exit
-enter_Program = input("Enter 'Y' to generate a password or press any key to exit")
-enter_Program = enter_Program.lower()
+def exit():
+    """
+    Exits the program
+    """
+
+    return True
 
 
-if enter_Program == "y":
-    print(gen.gen_rand_password(15))
+def generate_password(length):
+    '''
+    Returns a randomly generated string of int length
+    '''
 
-else:
-    exit()
+    return gen.gen_rand_password(length)
+
+
+def draw_gui():
+    window = Tk()
+    window.geometry('1000x100')
+    window.title("Password Generator")
+
+    window.mainloop()
+
+
+if __name__ == '__main__':
+    draw_gui()
