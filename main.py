@@ -18,13 +18,22 @@ def generate_password(length):
     return gen.gen_rand_password(length)
 
 
-def draw_gui():
+def build_gui():
     window = Tk()
     window.geometry('1000x100')
     window.title("Password Generator")
 
-    window.mainloop()
+    lbl = Label(window, text='password')
+
+    btn_generate = Button(window, text='Generate Password')
+    lbl.pack()
+    btn_generate.pack()
+
+    return window
+
 
 
 if __name__ == '__main__':
-    draw_gui()
+
+    gui = build_gui()
+    gui.mainloop()
