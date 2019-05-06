@@ -1,9 +1,10 @@
 import gen_rand_password as gen
 from tkinter import *
-
+import Export_To_File as export
 
 password = "1 "
 pass_length = 15
+path = "/home/brandon/password_test.txt"
 
 
 class BuildGui:
@@ -29,8 +30,10 @@ class BuildGui:
 
         # return gen.gen_rand_password(length)
         global password
+
         password = gen.gen_rand_password(self.password_length)
-        self.lbl.configure(text=password)
+        export.append_file(password, path)
+        self.lbl.configure(text="Your password has been created")
 
 
 if __name__ == '__main__':
