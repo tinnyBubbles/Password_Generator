@@ -1,10 +1,17 @@
 import gen_rand_password as gen
 from tkinter import *
 import Export_To_File as export
+from configparser import SafeConfigParser
 
-password = "1 "
-pass_length = 15
-path = "/home/brandon/password_test.txt"
+
+parser = SafeConfigParser()
+parser.read('configuration.ini')
+
+config_path = parser.get('configuration', 'path')
+file_name = parser.get('configuration', 'file_name')
+path = config_path + file_name
+config_pass_length = parser.get('configuration', 'character_length')
+pass_length = int(config_pass_length)
 
 
 class BuildGui:
@@ -16,7 +23,7 @@ class BuildGui:
         self.window.geometry('1000x100')
         self.window.title("Password Generator")
 
-        self.lbl = Label(self.window, text=password)
+        self.lbl = Label(self.window, text='')
         self.btn_generate = Button(self.window, text='Generate Password', command=self.generate_password)
 
         self.lbl.pack()
