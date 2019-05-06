@@ -5,8 +5,4 @@ def append_file(password, file_path):
     password_file.close()
 
 
-password1 = "test"
-file_path = "/home/brandon"
 
-
-append_file(password1, file_path)
