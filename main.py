@@ -1,10 +1,10 @@
 import gen_rand_password as gen
 from tkinter import *
 import Export_To_File as export
-from configparser import SafeConfigParser
+from configparser import *
 
 
-parser = SafeConfigParser()
+parser = ConfigParser()
 parser.read('configuration.ini')
 
 config_path = parser.get('configuration', 'path')
@@ -20,14 +20,16 @@ class BuildGui:
         self.password_length = char_length
 
         self.window = Tk()
-        self.window.geometry('1000x100')
+        self.window.geometry('500x100')
         self.window.title("Password Generator")
 
         self.lbl = Label(self.window, text='')
         self.btn_generate = Button(self.window, text='Generate Password', command=self.generate_password)
+        self.btn_quit = Button(self.window, text='Quit', command=self.window.destroy)
 
         self.lbl.pack()
         self.btn_generate.pack()
+        self.btn_quit.pack()
         self.window.mainloop()
 
     def generate_password(self):
@@ -43,5 +45,6 @@ class BuildGui:
         self.lbl.configure(text="Your password has been created")
 
 
+
 if __name__ == '__main__':
-    gui = BuildGui(pass_length)
+        gui = BuildGui(pass_length)
